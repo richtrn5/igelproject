@@ -9,10 +9,11 @@
 using namespace std;
 GameBoard::GameBoard()
 {
-    game = new Square ** [row]; //6 rows type Square
+    //initiate 2d dynamic pointer here (polymorphism)
+    gameboard = new Square ** [row]; //6 rows type Square
 
     for (int i = 0; i < row; ++i) {
-        game[i] = new Square*[col]; //9 columns type Square
+        gameboard[i] = new Square*[col]; //9 columns type Square
     }
 }
 
@@ -29,26 +30,31 @@ void GameBoard::drawboard()
             // implement adding obstacle label here
             // if statement for detecting obstacle
             if (blackholedetect) {
-                game[i][j] = new BlackHole;
-                game[i][j]->setSquareLabel(i+1, 0);
+                gameboard[i][j] = new BlackHole;
+                gameboard[i][j]->setSquareLabel(i+1, 0);
             }
             else
             {
-                game[i][j] = new Square;
+                gameboard[i][j] = new Square;
                 if (j == 0)
+                    //using ASCII dec values
                     charval = 83; //S
                 else if (j == 8) {
                     charval = 90-j; //Z (dec 90)
                 }
                 else
                     charval = 97; // b -> h
-                game[i][j]->setSquareLabel(i,j+charval);
+                gameboard[i][j]->setSquareLabel(i,j+charval);
             }
 
-            game[i][j]->setSquareCord(i,j);
-            game[i][j]->display();
+            gameboard[i][j]->setSquareCord(i,j);
+            gameboard[i][j]->display();
             cout << "  ";
         }
         cout << endl;
     }
 }
+
+
+
+

@@ -128,15 +128,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BlackHole.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="GameBoard.h" />
     <ClInclude Include="Hedgehog.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Square.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BlackHole.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameBoard.cpp" />
     <ClCompile Include="Hedgehog.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Square.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

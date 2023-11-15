@@ -18,6 +18,13 @@ int main() {
     //gameTest();
     GameBoard newgame;
     newgame.drawboard();
-    return 0;
 
+	//new methods added and being implemented
+
+    //newgame.chhosehhogs();
+    //newgame.placehhogs();
+    //newgame.play();
+    //newgame.results();
+
+    return 0;
 }

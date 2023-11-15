@@ -5,14 +5,22 @@
 #include "Square.h"
 #include <iostream>
 #include <string>
+#include "Hedgehog.h"
 using namespace std;
 
 Square::Square()
 {
 
 }
+// add constructor for receiving row and col values ******
+Square::Square(int row, int col) //this is for hedgehog
+{
+	
+}
 
-void Square::setSquareLabel(int row, char col)
+
+
+void Square::setSquareLabel(int row, char col) 
 {
     if (col == 0){
         label = "Obs" + to_string(row);
@@ -21,14 +29,20 @@ void Square::setSquareLabel(int row, char col)
         label = "T"+ to_string(row) + col;
 }
 
-void Square::setSquareCord(int row, int col)
+void Square::setSquareCord(int row, int col) 
 {
     xLocation = row;
     yLocation = col;
 }
 
+
 void Square::display() {
-    //cout<< xLocation << ", " << yLocation;
     cout << label;
 }
+
+string Square::getLabel()
+{
+    return label;
+}
+
 

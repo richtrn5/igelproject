@@ -3,8 +3,10 @@
 
 #ifndef IGELPROJECT_SQUARE_H
 #define IGELPROJECT_SQUARE_H
+
 #include <string>
-//#include "GameBoard.h"
+#include <stack>
+#include "Hedgehog.h"
 
 using namespace std;
 
@@ -13,6 +15,8 @@ private:
     string label;
     int xLocation;
     int yLocation;
+    stack<Hedgehog> chips;
+    
 public:
     Square(); //blank for creating square array
     Square(int row, int col);
@@ -23,6 +27,9 @@ public:
     virtual void display();
     // displays details or labels of current square on the gameboard
 
+    string getLabel();
+    // mainly for feeding private data member to Hedgehog
+    virtual ~Square();
 };
 
 
