@@ -15,12 +15,13 @@ void gameTest()
 
 int main() {
 
-    //gameTest();
+    int players;
     GameBoard newgame;
     newgame.drawboard();
 
 	//new methods added and being implemented
-
+    // cin >> players;
+    //newgame.setplayers(players);
     //newgame.chhosehhogs();
     //newgame.placehhogs();
     //newgame.play();

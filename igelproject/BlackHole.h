@@ -1,5 +1,3 @@
-//
-//
 
 #ifndef IGELPROJECT_BLACKHOLE_H
 #define IGELPROJECT_BLACKHOLE_H

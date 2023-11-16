@@ -29,7 +29,6 @@ public:
 
     string getLabel();
     // mainly for feeding private data member to Hedgehog
-    virtual ~Square();
 };
 
 

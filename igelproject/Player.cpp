@@ -1,5 +1,24 @@
-//
-// Created by Rich Tran on 11/14/23.
-//
-
 #include "Player.h"
+
+//helper methods for move()
+void rollDie()
+{
+	
+}
+
+void forward() 
+{
+
+}
+
+
+void Player::placehhog()
+{
+
+}
+
+void Player::moveHH()
+{
+
+}
+

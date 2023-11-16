@@ -1,10 +1,12 @@
-#pragma once
+#ifndef IGELPROJECT_HEDGEHOG_H
+#define IGELPROJECT_HEDGEHOG_H
+
 #include <string>
-#include "Square.h"
+//#include "Square.h"
+// DO NOT INCLUDE THIS
 using namespace std;
 
-class Hedgehog:
-	public Square
+class Hedgehog
 {
 private:
 	string label;
@@ -15,6 +17,7 @@ public:
 	
 };
 
+#endif
 // how could we associate the hedgehog (chips) with each square??
 
 // create a hedgehog stack in SQUARE and push THIS there using Player
