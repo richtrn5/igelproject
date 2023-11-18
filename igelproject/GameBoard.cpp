@@ -1,10 +1,18 @@
-//
-//
+
+// https://iq.opengenus.org/print-text-in-color-in-c/
+
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+
 
 #include "GameBoard.h"
 #include "Square.h"
 #include "BlackHole.h"
 #include <iostream>
+
 
 using namespace std;
 GameBoard::GameBoard()
@@ -17,9 +25,14 @@ GameBoard::GameBoard()
     }
 }
 
+
 void GameBoard::drawboard()
 {
     int charval{};
+
+    string title = "        IGEL ARGERN         \n";
+    string hLine = "---------------------------------\n";
+    cout << GREEN<<title << RED<<hLine << RESET;
 
     for (int i = 0; i < row; ++i) {
         for (int j = 0; j < col; ++j) {
@@ -49,7 +62,7 @@ void GameBoard::drawboard()
 
             gameboard[i][j]->setSquareCord(i,j);
             gameboard[i][j]->display();
-            cout << "  ";
+            cout << "  "; // space the columns
         }
         cout << endl;
     }

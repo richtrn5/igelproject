@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "GameBoard.h"
+#include "Game.h"
 
 using namespace std;
 
@@ -16,14 +17,17 @@ void gameTest()
 int main() {
 
     int players;
-    GameBoard newgame;
+    Game newgame;
     newgame.drawboard();
 
 	//new methods added and being implemented
-    // cin >> players;
-    //newgame.setplayers(players);
-    //newgame.chhosehhogs();
-    //newgame.placehhogs();
+    cout << " how many players?? \n";
+    cin >> players;
+    newgame.setplayers(players);
+    newgame.choosehhogs();
+    newgame.placehhogs(); //working on this
+    // display update after placing HH
+    //newgame.displayUpdate(); // TESTING
     //newgame.play();
     //newgame.results();
 

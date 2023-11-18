@@ -29,6 +29,12 @@ public:
 
     string getLabel();
     // mainly for feeding private data member to Hedgehog
+
+    void pushHH(const Hedgehog & hh);
+
+    void displayStackHH(); // show top of stack
+
+
 };
 
 

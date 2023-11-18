@@ -1,12 +1,18 @@
-#include "Player.h"
 #include "GameBoard.h"
-class Game: GameBoard
+#include "Hedgehog.h"
+#include "Player.h"
 
+class Game :
+	public GameBoard // multiple inheritance
 {
 private:
-	Player* players;
-	//player member
+	Player* players_;
+	int numPlayers;
+	const int numHH = 4;
 
+	int totalHHingame;
+
+	Hedgehog * hedgehog_;
 	
 public:
 	Game();
@@ -15,6 +21,7 @@ public:
 	// while loop initiates.. where the game starts
 
 	// note to self: WHEN A PLAYER MOVES FORWARD, MAKE SURE IT IS JUST J + 1 AND PUSH TO THAT STACK
+
 
 	void displayUpdate();
 	// Display updated board after player's turn
@@ -31,6 +38,8 @@ public:
 
 	void placehhogs();
 	// loop and choose 4 spots in gameboard pointer matrix (FIRST COLUMN) to PUSH hedgehog onto stack
+
+	virtual void drawboard();
 
 };
 

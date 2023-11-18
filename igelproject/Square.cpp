@@ -45,4 +45,34 @@ string Square::getLabel()
     return label;
 }
 
+void Square::pushHH(const Hedgehog& hh)
+{
+
+    chips.push(hh);
+
+}
+
+void Square::displayStackHH()
+{
+    stack<Hedgehog> tempHH = chips;
+	if (!chips.empty()) //only display the existing stacks
+	{
+        cout << label << ": ";
+        while (!tempHH.empty())
+        {
+            tempHH.top().display();
+            cout << " ";
+            tempHH.pop();
+
+        }
+        //cout << chips.size();
+	}
+	else
+	{
+        
+	}
+	
+}
+
+
 
