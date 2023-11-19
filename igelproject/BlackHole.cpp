@@ -21,5 +21,25 @@ void BlackHole::display() {
     Square::display();
 }
 
+void BlackHole::popHH()
+{
+    Square::popHH();
+}
+
+void BlackHole::pushHH(const Hedgehog& hh)
+{
+    Square::pushHH(hh);
+}
+
+void BlackHole::displayStackHH()
+{
+    Square::displayStackHH();
+}
+
+Hedgehog BlackHole::getTop()
+{
+    return Square::getTop();
+}
+
 
 

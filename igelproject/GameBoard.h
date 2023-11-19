@@ -18,6 +18,7 @@ protected:
     const int col = 9;
 public:
     GameBoard();
+	void createboard();
     virtual void drawboard();
     // next time: change the design of the board..
     Square***& getGameboard() { return gameboard; }

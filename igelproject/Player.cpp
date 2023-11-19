@@ -1,5 +1,7 @@
 #include "Player.h"
-
+#include "Square.h"
+#include <iostream>
+#include <string>
 Player::Player()
 {
 	hedgehog_ = new Hedgehog[4];
@@ -19,21 +21,30 @@ void Player::setStart(int x, int y)
 	//
 }
 
-//helper methods for move()
-void rollDie()
-{
-	
-}
 
-void forward() 
-{
-
-}
-
-
-
+/*
 void Player::moveHH()
 {
+	rollDie();
+	forward();
+}
+*/
+
+void Player::displayPlayer()
+{
+	string colorWord;
+	if (color == 'R')
+	{
+		colorWord = "Red";
+		std::cout << colorWord << " " << RED << color << RESET;
+
+	}
+	if (color == 'G')
+	{
+		colorWord = "Green";
+		std::cout << colorWord<< " " << GREEN << color << RESET;
+
+	}
 
 }
 

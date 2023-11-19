@@ -1,9 +1,11 @@
+#pragma once
+
 #include "GameBoard.h"
 #include "Hedgehog.h"
 #include "Player.h"
 
 class Game :
-	public GameBoard // multiple inheritance
+	public GameBoard// multiple inheritance
 {
 private:
 	Player* players_;
@@ -13,6 +15,8 @@ private:
 	int totalHHingame;
 
 	Hedgehog * hedgehog_;
+
+	int numDie;
 	
 public:
 	Game();
@@ -41,5 +45,9 @@ public:
 
 	virtual void drawboard();
 
+	bool checkLastCol() const;
+
+	void rollDie();
+	void forward();
 };
 

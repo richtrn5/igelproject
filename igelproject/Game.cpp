@@ -1,10 +1,10 @@
 #include "Game.h"
-
+#include "Square.h"
 #include <iostream>
 using namespace std;
 Game::Game() 
 {
-
+	createboard();
 }
 
 void Game::setplayers(int& numplayers) // make this an inline function
@@ -12,7 +12,7 @@ void Game::setplayers(int& numplayers) // make this an inline function
 	numPlayers = numplayers;
 	totalHHingame = numHH * numPlayers;
 
-	players_ = new Player[numplayers];
+	players_ = new Player[numPlayers];
 	hedgehog_ = new Hedgehog[totalHHingame];
 }
 
@@ -49,41 +49,74 @@ void Game::placehhogs()
 
 	int index = 0;
 	int rowB;
-	for (int i = 0; i < 1; i++) // until numHH
-	{	// choose 2 chip positions FOR NOW
+	for (int i = 0; i < numHH; i++) 
+	{	// try just 1 player for now
 
 		// HAVE PLAYER CHOOSE A ROW TO PLACE HEDGEHOG
-		//now lets work on the stack
-		// push gameboard to GAME
-		cout << "Player 1 place your HedgeHog, enter row number (0-5): ";
-		cin >> rowB;
-		gameboard[rowB][0]->pushHH(hedgehog_[index]);
 
-		index++;
-		cout << "Player 2 place your HedgeHog, enter row number (0-5): ";
-		cin >> rowB;
-		gameboard[rowB][0]->pushHH(hedgehog_[index]);
-
-		index++;
-	}
-
-	displayUpdate();
-	/*
-	for (int i = 0; i < numHH; i++) // for each player's hedgehogs
-	{
-		for (int j =0; j < numPlayers; j++) // for each players (taking turns)
+		for (int j = 0; j<numPlayers; j++)
 		{
-			
+			cout << "Player " << j+1 << " place your HedgeHog, enter row number (0-5): ";
+
+			cin >> rowB;
+			if (rowB > 5)
+			{
+				cout << "did you mean 5?\n";
+				rowB = 5;
+			}
+			gameboard[rowB][0]->pushHH(hedgehog_[index]);
+			displayUpdate();
+			index++;
 		}
+
 	}
-	*/
+	index = 0;
+	//drawboard(); // DO NOT USE THIS, BOARD RESETS
+
 }
 
 
+bool Game::checkLastCol() const
+{
+	for (int i = 0; i < 6; i++)
+	{
+		if (!(gameboard[i][8]->checkStackEmpty())) // if NOT empty
+		{
+			std::cout << "winnerwinner chicken dinner\n";
+			return true;
+			//break;
+			
+		}
+		
+	}
+	return false; // if empty
+}
 
 void Game::play()
 {
-	
+	//roll die
+	std::srand(std::time(0)); // from assignment 2
+	int num = 0;
+	int index = 0;
+	//displayUpdate();
+	while (!checkLastCol()) // while last column is empty
+	{
+		for (int i = 0; i < numPlayers; i++)
+		{
+			std::cout << "PLAYER" << i+1 <<" TURN\n";
+			//std::cout << "enter any num to continue WHILE LOOP\n";
+			//cin >> num;
+			//players_[i].moveHH(); this does not work... idk why
+
+			rollDie();
+
+			forward();
+
+			displayUpdate();
+
+
+		}
+	}
 	// initiate while loop
 		// repeat until a hedgehog has been detected at the end of the row.
 			// check each row in the last column ( when j = 8 ) if stack is NOT EMPTY
@@ -94,12 +127,18 @@ void Game::play()
 			
 			//players[i].moveHH();
 		// display updated squares
-		displayUpdate();
 
 }
 
-void Game::displayUpdate()
+void Game::displayUpdate() 
 {
+	for (int i = 0; i < numPlayers; i++)
+	{
+		cout << "Player " << i+1 << " : ";
+		players_[i].displayPlayer();
+		cout << " ";
+	}
+	cout << endl;
 	for (int i = 0; i < row; i++)
 	{
 		for (int j = 0; j < col; j++)
@@ -108,11 +147,12 @@ void Game::displayUpdate()
 			gameboard[i][j]->displayStackHH();
 		}
 	}
+
 }
 
 void Game::results()
 {
-
+	// the winner is the specific color of hedgehog at the end of column
 }
 
 void Game::drawboard()
@@ -126,5 +166,30 @@ void Game::drawboard()
 
 	}
 	*/
+}
+
+void Game::rollDie()
+{
+	numDie = 0; // testing first row
+	//numDie = std::rand() % 6;
+	//cout << "Number Rolled: " << numDie << endl;
 
 }
+
+void Game::forward()
+{
+	int num;
+	//choose column in specific row (from die) to move forward
+	std::cout << "MOVE FORWARD" << endl;
+	cout << "choose column from row " << numDie << ":  ";
+	cin >> num;
+
+	gameboard[numDie][num + 1]->pushHH(gameboard[numDie][num]->getTop());
+	gameboard[numDie][num]->popHH();
+
+	//gameboard[numDie][num]->popHH();
+	//gameboard[numDie][num]->;
+
+}
+
+

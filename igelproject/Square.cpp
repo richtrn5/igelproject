@@ -19,7 +19,6 @@ Square::Square(int row, int col) //this is for hedgehog
 }
 
 
-
 void Square::setSquareLabel(int row, char col) 
 {
     if (col == 0){
@@ -45,6 +44,11 @@ string Square::getLabel()
     return label;
 }
 
+void Square::popHH()
+{
+    chips.pop();
+}
+
 void Square::pushHH(const Hedgehog& hh)
 {
 
@@ -60,19 +64,30 @@ void Square::displayStackHH()
         cout << label << ": ";
         while (!tempHH.empty())
         {
-            tempHH.top().display();
+            tempHH.top().displayHH();
             cout << " ";
             tempHH.pop();
 
         }
         //cout << chips.size();
+        cout << endl;
+
 	}
 	else
 	{
-        
+		//std::cout << "empty af";
 	}
-	
 }
 
+Hedgehog Square::getTop()
+{
+    return chips.top();
+}
+
+
+bool Square::checkStackEmpty()
+{
+    return chips.empty();
+}
 
 

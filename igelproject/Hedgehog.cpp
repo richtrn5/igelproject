@@ -14,12 +14,21 @@ Hedgehog::Hedgehog(char Color, int x, int y)
 void Hedgehog::setColor(char Color)
 {
 	color = Color;
-	std::cout << color << std::endl;
+	//std::cout << color << std::endl;
 }
 
-void Hedgehog::display()
+void Hedgehog::displayHH()
 {
-	std::cout << color;
+	if (color == 'R')
+	{
+		std::cout << RED << color << RESET;
+
+	}
+	if (color == 'G')
+	{
+		std::cout << GREEN << color << RESET;
+
+	}
 }
 
 

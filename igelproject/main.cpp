@@ -18,6 +18,7 @@ int main() {
 
     int players;
     Game newgame;
+
     newgame.drawboard();
 
 	//new methods added and being implemented
@@ -28,7 +29,7 @@ int main() {
     newgame.placehhogs(); //working on this
     // display update after placing HH
     //newgame.displayUpdate(); // TESTING
-    //newgame.play();
+    newgame.play();
     //newgame.results();
 
     return 0;

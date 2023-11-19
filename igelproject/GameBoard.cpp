@@ -25,26 +25,21 @@ GameBoard::GameBoard()
     }
 }
 
-
-void GameBoard::drawboard()
+void GameBoard::createboard()
 {
     int charval{};
-
-    string title = "        IGEL ARGERN         \n";
-    string hLine = "---------------------------------\n";
-    cout << GREEN<<title << RED<<hLine << RESET;
 
     for (int i = 0; i < row; ++i) {
         for (int j = 0; j < col; ++j) {
             bool blackholedetect = i == 0 && j == 3 || i == 1 && j == 6 || i == 2 && j == 4 ||
-                                   i == 3 && j == 5 || i == 4 && j == 2 || i == 5 && j == 7;
+                i == 3 && j == 5 || i == 4 && j == 2 || i == 5 && j == 7;
             //for placement of each obstacle.. as accordingly to the physical board.
 
             // implement adding obstacle label here
             // if statement for detecting obstacle
             if (blackholedetect) {
                 gameboard[i][j] = new BlackHole;
-                gameboard[i][j]->setSquareLabel(i+1, 0);
+                gameboard[i][j]->setSquareLabel(i + 1, 0);
             }
             else
             {
@@ -53,21 +48,78 @@ void GameBoard::drawboard()
                     //using ASCII dec values
                     charval = 83; //S
                 else if (j == 8) {
-                    charval = 90-j; //Z (dec 90)
+                    charval = 90 - j; //Z (dec 90)
                 }
                 else
                     charval = 97; // b -> h
-                gameboard[i][j]->setSquareLabel(i,j+charval);
+                gameboard[i][j]->setSquareLabel(i, j + charval);
             }
 
-            gameboard[i][j]->setSquareCord(i,j);
-            gameboard[i][j]->display();
-            cout << "  "; // space the columns
+            gameboard[i][j]->setSquareCord(i, j);
         }
-        cout << endl;
     }
 }
 
+void GameBoard::drawboard()
+{
+    int charval{};
 
+    string title = "            GAMEBOARD            \n";
+    string hLine = "---------------------------------\n";
+    cout << GREEN<<title << RED<<hLine << RESET;
+
+    for (int i = 0; i < row; ++i) {
+        cout << i << "   ";
+
+        for (int j = 0; j < col; ++j) {
+            gameboard[i][j]->display();
+            cout << "   "; // space the columns
+
+        }
+
+        cout << endl;
+    }
+    std::cout << "     ";
+    for (int j = 0; j < col; ++j)
+    {
+	    std::cout << j << "     ";
+    }
+    cout << endl;
+
+}
+
+
+
+
+
+/*
+bool blackholedetect = i == 0 && j == 3 || i == 1 && j == 6 || i == 2 && j == 4 ||
+                       i == 3 && j == 5 || i == 4 && j == 2 || i == 5 && j == 7;
+//for placement of each obstacle.. as accordingly to the physical board.
+
+// implement adding obstacle label here
+// if statement for detecting obstacle
+if (blackholedetect) {
+    gameboard[i][j] = new BlackHole;
+    gameboard[i][j]->setSquareLabel(i+1, 0);
+}
+else
+{
+    gameboard[i][j] = new Square;
+    if (j == 0)
+        //using ASCII dec values
+        charval = 83; //S
+    else if (j == 8) {
+        charval = 90-j; //Z (dec 90)
+    }
+    else
+        charval = 97; // b -> h
+    gameboard[i][j]->setSquareLabel(i,j+charval);
+}
+
+gameboard[i][j]->setSquareCord(i,j);
+gameboard[i][j]->display();
+cout << "  "; // space the columns
+*/
 
 
