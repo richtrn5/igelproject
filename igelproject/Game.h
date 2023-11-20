@@ -14,7 +14,7 @@ private:
 
 	int totalHHingame;
 
-	Hedgehog * hedgehog_;
+	Hedgehog * allhedgehog_;
 
 	int numDie;
 	
@@ -45,9 +45,9 @@ public:
 
 	virtual void drawboard();
 
-	bool checkLastCol() const;
+	bool checkLastCol();
 
 	void rollDie();
-	void forward();
+	bool forward(int i);
 };
 

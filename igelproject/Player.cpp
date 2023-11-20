@@ -2,24 +2,27 @@
 #include "Square.h"
 #include <iostream>
 #include <string>
+
+
 Player::Player()
 {
-	hedgehog_ = new Hedgehog[4];
 }
 
+Player::Player(char color) : hedgehog_(color)
+{
+	//hedgehog_ = new Hedgehog[4];
+}
 
+//OLD
+/*
 void Player::giveHHchips()
 {
-	for (int i = 0; i<4;i++)
-	{
-		hedgehog_[i].setColor(color);
-	}
-}
 
-void Player::setStart(int x, int y)
-{
-	//
+		hedgehog_.setColor(color);
+	
 }
+*/
+
 
 
 /*
@@ -33,23 +36,30 @@ void Player::moveHH()
 void Player::displayPlayer()
 {
 	string colorWord;
-	if (color == 'R')
+	if (hedgehog_.getColor() == 'R')
 	{
 		colorWord = "Red";
-		std::cout << colorWord << " " << RED << color << RESET;
+		std::cout << colorWord << " " << RED << hedgehog_.getColor() << RESET;
 
 	}
-	if (color == 'G')
+	if (hedgehog_.getColor() == 'G')
 	{
 		colorWord = "Green";
-		std::cout << colorWord<< " " << GREEN << color << RESET;
+		std::cout << colorWord<< " " << GREEN << hedgehog_.getColor() << RESET;
 
 	}
 
 }
 
-Hedgehog Player::getHH(int& i)
+char Player::getHHcolor_player()
 {
-	return hedgehog_[i];
+	return hedgehog_.getColor();
 }
+
+Hedgehog Player::placeHH()
+{
+	return hedgehog_;
+}
+
+
 

@@ -30,7 +30,7 @@ int main() {
     // display update after placing HH
     //newgame.displayUpdate(); // TESTING
     newgame.play();
-    //newgame.results();
+    newgame.results();
 
     return 0;
 }

@@ -23,6 +23,7 @@ public:
     // next time: change the design of the board..
     Square***& getGameboard() { return gameboard; }
 
+
     //display a text-based representation of the board
 
 };

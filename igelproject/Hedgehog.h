@@ -21,8 +21,9 @@ private:
 	char color;
 public:
 	Hedgehog();
-	Hedgehog(char Color, int x, int y); //construct starting position of object hedgehog
+	Hedgehog(char Color); //construct the color of hedgehog
 	void setColor(char Color);
+	char& getColor();
 	void displayHH();
 	//void getHH(int & i);
 	//void setStart(int x, int y);

@@ -14,26 +14,36 @@
 #include "Hedgehog.h"
 
 using namespace std;
-class Player: public GameBoard{
+class Player{
 private:
-    char color; // R for Red.. G for Green
+    //char color; // R for Red.. G for Green
     int rank;
-    Hedgehog* hedgehog_; //
+    Hedgehog hedgehog_; //the type of hedgehog color in player
     int numDie;
 	
 public:
     //void placehhog();
-    Player(); // initialize hedgehog array
-    void setColor(char& Color) { color = Color; }
-    void giveHHchips();
-    void setStart(int x, int y);
+    Player();
+	// does nothing
+    // player will have an array of 4 hedgehogs
+    /// ACTUALLY THIS IS NOT NEEDED
+
+    Player(char color); //initialize player with hedgehog color
+
+    //OLD
+    //void setColor(const char& Color) { color = Color; }
+
+    //OLD
+    //void giveHHchips();
+
     void moveHH();
     void displayPlayer();
     // asks specific player to move a hedgehog depending on where the die lands...
     // should only allow to choose a hedgehog based on the number landed.
     
-    Hedgehog getHH(int& i); // return Hedgehog object
+    Hedgehog placeHH(); // return Hedgehog object
 
+    char getHHcolor_player();
     //helper functions
  
 };
