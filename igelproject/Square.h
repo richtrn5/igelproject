@@ -15,7 +15,7 @@ private:
     string label;
     int xLocation;
     int yLocation;
-    stack<Hedgehog> chips;
+    stack<Hedgehog> chips; //new
     
 public:
     Square(); //blank for creating square array
@@ -32,12 +32,12 @@ public:
 
     /// FOR STACK
     
-    virtual void popHH();
-    virtual void pushHH(const Hedgehog & hh);
+    virtual void popHH(); // remove top element of stack
+    virtual void pushHH(const Hedgehog & hh); // push new element of type HEDGEHOG onto stack
 
-    virtual void displayStackHH(); // show top of stack
+    virtual void displayStackHH(); // display ENTIRE stack
 
-    virtual Hedgehog getTop();
+    virtual Hedgehog getTop(); // displays top of STACK
 
     bool checkStackEmpty();
 };
