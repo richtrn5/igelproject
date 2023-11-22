@@ -7,7 +7,7 @@ class BlackHole: public Square{
 public:
     BlackHole();
     virtual void setSquareLabel(string l);
-    virtual void setSquareCord(int i, int j);
+    virtual void setSquareCord(int i, int j); // might not be needed
     virtual void display();
 
     virtual void popHH();
