@@ -2,7 +2,7 @@
 #include "Square.h"
 #include <iostream>
 using namespace std;
-Game::Game() 
+Game::Game()
 {
 	createboard();
 }
@@ -22,7 +22,7 @@ void Game::choosehhogs()
 	char color;
 	for (int i = 0; i < numPlayers; i++)
 	{
-		cout << "choose Color for player " << i+1 << "\nR for Red, G for Green: ";
+		cout << "choose Color for player " << i + 1 << "\nR for Red, G for Green: ";
 		cin >> color;
 		players_[i] = Player(color);
 		// now we just call the constructor for setting its hedgehog type
@@ -56,11 +56,11 @@ void Game::placehhogs()
 	//int index = 0;
 	int rowB;
 	for (int i = 0; i < numHH; i++) //loop for each HH in Player
-	{	
+	{
 
 		// HAVE PLAYER CHOOSE A ROW TO PLACE HEDGEHOG
 
-		for (int j = 0; j<numPlayers; j++) // counter for each player
+		for (int j = 0; j < numPlayers; j++) // counter for each player
 		{
 			drawboard();
 			cout << "Player " << j + 1 << " place your ";
@@ -73,10 +73,10 @@ void Game::placehhogs()
 				cout << "did you mean 5?\n";
 				rowB = 5;
 			} /// HERE MAKE PLAYER CHOOSE AGAIN
-			
+
 			gameboard[rowB][0]->pushHH(players_[j].placeHH());
 			// have PLAYER place hedgehog on the board
-			std::cout << BLUE << "----------------------------------------\n\n" <<  RESET;
+			std::cout << BLUE << "----------------------------------------\n\n" << RESET;
 			displayUpdate();
 			//index++;
 		}
@@ -98,9 +98,9 @@ bool Game::checkLastCol()
 			std::cout << "winnerwinner chicken dinner\n";
 			colstatus = true;
 			//break;
-			
+
 		}
-		
+
 	}
 	return colstatus; // if empty
 }
@@ -116,7 +116,7 @@ void Game::play()
 	{
 		for (int i = 0; i < numPlayers; i++)
 		{
-			std::cout << "PLAYER" << i+1 <<" TURN\n";
+			std::cout << "PLAYER" << i + 1 << " TURN\n";
 			//std::cout << "enter any num to continue WHILE LOOP\n";
 			//cin >> num;
 			//players_[i].moveHH(); this does not work... idk why
@@ -133,20 +133,20 @@ void Game::play()
 		// repeat until a hedgehog has been detected at the end of the row.
 			// check each row in the last column ( when j = 8 ) if stack is NOT EMPTY
 				// checkLastCol();
-		
+
 
 		// make each player move a hedgehog
-			
+
 			//players[i].moveHH();
 		// display updated squares
 
 }
 
-void Game::displayUpdate() 
+void Game::displayUpdate()
 {
 	for (int i = 0; i < numPlayers; i++)
 	{
-		cout << "Player " << i+1 << " : ";
+		cout << "Player " << i + 1 << " : ";
 		players_[i].displayPlayer();
 		cout << " ";
 	}
@@ -155,7 +155,7 @@ void Game::displayUpdate()
 	{
 		for (int j = 0; j < col; j++)
 		{
-			
+
 			gameboard[i][j]->displayStackHH();
 		}
 	}
@@ -169,9 +169,9 @@ void Game::results()
 	{
 		for (int pCNT = 0; pCNT < numPlayers; pCNT++) //check each player's HH color
 		{
-			if ( !gameboard[i][8]->checkStackEmpty() && (gameboard[i][8]->getTop().getColor() == players_[pCNT].getHHcolor_player()))
+			if (!gameboard[i][8]->checkStackEmpty() && (gameboard[i][8]->getTop().getColor() == players_[pCNT].getHHcolor_player()))
 			{
-				cout << "WINNER IS PLAYER " << pCNT+1;
+				cout << "WINNER IS PLAYER " << pCNT + 1;
 			}
 		}
 	}
@@ -221,17 +221,17 @@ bool Game::forward(int i)
 		{
 			if (gameboard[numDie][index]->getTop().getColor()
 						== players_[i].getHHcolor_player()) // compare HH player's color
-			   	{
+				{
 					HHexist = true;
-			   	}
+				}
 		}
 	}
 	*/
-	
+
 	if (!gameboard[numDie][num]->checkStackEmpty()) // if square is not empty
-		{
-			gameboard[numDie][num + 1]->pushHH(gameboard[numDie][num]->getTop());
-			gameboard[numDie][num]->popHH();
+	{
+		gameboard[numDie][num + 1]->pushHH(gameboard[numDie][num]->getTop());
+		gameboard[numDie][num]->popHH();
 
 		// checking if hedgehog on the board matches with the player's *****(UNDER DEVELOPMENT)*****
 		/*
@@ -240,7 +240,7 @@ bool Game::forward(int i)
 
 				gameboard[numDie][num + 1]->pushHH(players_[i].placeHH());
 				gameboard[numDie][num]->popHH();
-				
+
 			}
 			else
 			{
@@ -251,10 +251,10 @@ bool Game::forward(int i)
 			}
 			stay = false;
 		*/
-			stay = false;
-		}
-		
-		
+		stay = false;
+	}
+
+
 	else
 	{
 		cout << "no stack exists\n";

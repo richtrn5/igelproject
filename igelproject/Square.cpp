@@ -17,16 +17,16 @@ Square::Square()
 // add constructor for receiving row and col values ******
 Square::Square(int row, int col) //this is for hedgehog
 {
-	
+
 }
 
 
-void Square::setSquareLabel(string l) 
+void Square::setSquareLabel(string l)
 {
     label = l;
 }
 
-void Square::setSquareCord(int row, int col) 
+void Square::setSquareCord(int row, int col)
 { //change col to char
     xLocation = row;
     yLocation = col;
@@ -41,8 +41,8 @@ void Square::displayStackHH()
 {
     stack<Hedgehog> tempHH = chips;
     char letterCol = yLocation + 'a';
-	if (!chips.empty()) //only display the existing stacks
-	{
+    if (!chips.empty()) //only display the existing stacks
+    {
         cout << xLocation << letterCol << ": ";
         while (!tempHH.empty())
         {
@@ -54,11 +54,11 @@ void Square::displayStackHH()
         //cout << chips.size();
         cout << endl;
 
-	}
-	else
-	{
-		//std::cout << "empty af";
-	}
+    }
+    else
+    {
+        //std::cout << "empty af";
+    }
 }
 
 

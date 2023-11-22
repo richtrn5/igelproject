@@ -3,7 +3,7 @@
 #include <iostream>
 Hedgehog::Hedgehog()
 {
-	
+
 }
 
 Hedgehog::Hedgehog(char Color)

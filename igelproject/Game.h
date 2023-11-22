@@ -14,10 +14,10 @@ private:
 
 	int totalHHingame;
 
-	Hedgehog * allhedgehog_;
+	Hedgehog* allhedgehog_;
 
 	int numDie;
-	
+
 public:
 	Game();
 
@@ -34,7 +34,7 @@ public:
 	void results();
 	// Display final result of board and player winner
 
-	void setplayers(int & numPlayers);
+	void setplayers(int& numPlayers);
 	// set players depending on number of players input in main.cpp
 
 	void choosehhogs();

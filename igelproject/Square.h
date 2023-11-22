@@ -12,60 +12,51 @@
 
 using namespace std;
 
-class Square{
+class Square {
 private:
     string label;
     int xLocation;
     int yLocation;
-    stack<Hedgehog> chips; //new
-    
+    stack<Hedgehog> chips;
+
 public:
     //blank for creating square obj in gameboard
-    Square(); 
+    Square();
     Square(int row, int col);
 
     //setting private data
     virtual void setSquareLabel(string l);
-    
+
     virtual void setSquareCord(int row, int col);
 
     // we can remove these actually
-    
-<<<<<<< HEAD
+
 
 
     // set square values
-	// displays details or labels of current square on the gameboard
-    virtual void display(){cout << label;}
-=======
-    virtual void popHH(); // remove top element of stack
-    virtual void pushHH(const Hedgehog & hh); // push new element of type HEDGEHOG onto stack
-
-    virtual void displayStackHH(); // display ENTIRE stack
-
-    virtual Hedgehog getTop(); // displays top of STACK
->>>>>>> 336ee49c1347b9116df596795d84cd770e3cba43
+    // displays details or labels of current square on the gameboard
+    virtual void display() { cout << label; }
 
 
     // mainly for feeding private data member to Hedgehog
-    string getLabel(){return label;}
+    string getLabel() { return label; }
 
 
     /// FOR USING STACK IN GAMEBOARD
     // ex) gameboard[][] -> checkStackEmpty();
-    virtual void popHH(){ chips.pop(); }
-    virtual void pushHH(const Hedgehog & hh) {chips.push(hh);}
+    virtual void popHH() { chips.pop(); }
+    virtual void pushHH(const Hedgehog& hh) { chips.push(hh); }
 
     // display the ENTIRE stack
-    virtual void displayStackHH(); 
+    virtual void displayStackHH();
 
     // return the TOP of stack
-    virtual Hedgehog getTop(){ return chips.top(); }
+    virtual Hedgehog getTop() { return chips.top(); }
 
     // display the TOP of stack...
     // mainly for displaying on the gameboard
-    void displayTopChip(){ chips.top().displayCHIP(); }
-    bool checkStackEmpty(){ return chips.empty(); }
+    void displayTopChip() { chips.top().displayCHIP(); }
+    bool checkStackEmpty() { return chips.empty(); }
 };
 
 

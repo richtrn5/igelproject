@@ -31,7 +31,7 @@ public:
 
 	virtual ~Hedgehog();
 
-	
+
 };
 
 #endif

@@ -16,7 +16,7 @@
 #include "Square.h"
 
 using namespace std;
-class GameBoard{
+class GameBoard {
 
 private:
 
@@ -28,10 +28,10 @@ public:
     GameBoard();
 
     // creating & displaying gameboard
-	void createboard();
+    void createboard();
     virtual void drawboard();
 
-	Square***& getGameboard() { return gameboard; }
+    Square***& getGameboard() { return gameboard; }
 
     //check empty square
     void displayHHorSQ(int i, int j);
