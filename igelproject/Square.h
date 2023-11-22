@@ -7,14 +7,15 @@
 #include <string>
 #include <stack>
 #include <iostream>
-
 #include "Hedgehog.h"
 
-using namespace std;
+using std::cout, std::string;
+
 
 class Square {
-private:
+
     string label;
+    char boardlabel;
     int xLocation;
     int yLocation;
     stack<Hedgehog> chips;
@@ -22,24 +23,16 @@ private:
 public:
     //blank for creating square obj in gameboard
     Square();
-    Square(int row, int col);
-
-    //setting private data
-    virtual void setSquareLabel(string l){ label = l; }
-
-    virtual void setSquareCord(int row, int col);
-
-    // we can remove these actually
+    Square(int row, int col, char blabel);
 
 
-
-    // set square values
-    // displays details or labels of current square on the gameboard
-    virtual void display() { cout << label; }
+    // displays boardlabel of current square on the gameboard
+    virtual void displayB_label() { cout << boardlabel; }
 
 
+    // TODO remove this if not needed
     // mainly for feeding private data member to Hedgehog
-    string getLabel() { return label; }
+    //string getLabel() { return label; }
 
 
     /// FOR USING STACK IN GAMEBOARD
@@ -56,7 +49,9 @@ public:
     // display the TOP of stack...
     // mainly for displaying on the gameboard
     void displayTopChip() { chips.top().displayCHIP(); }
-    bool checkStackEmpty() { return chips.empty(); }
+
+    // return true if HH stack is empty
+	bool checkStackEmpty() const { return chips.empty(); }
 };
 
 

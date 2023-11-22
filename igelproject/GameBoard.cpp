@@ -25,14 +25,12 @@ void GameBoard::displayHHorSQ(int i, int j)
     }
     else
     {
-        gameboard[i][j]->display(); // display square or obstacle
+        gameboard[i][j]->displayB_label(); // display square or obstacle
     }
 }
 
 void GameBoard::createboard()
 {
-    int charval{};
-    string label;
     for (int i = 0; i < row; ++i) {
         for (int j = 0; j < col; ++j) {
             bool blackholedetect = i == 0 && j == 3 || i == 1 && j == 6 || i == 2 && j == 4 ||
@@ -44,18 +42,12 @@ void GameBoard::createboard()
             // implement adding obstacle label here
             // if statement for detecting obstacle
             if (blackholedetect) {
-                gameboard[i][j] = new BlackHole;
-                label = "x";
-                gameboard[i][j]->setSquareLabel(label);
+                gameboard[i][j] = new BlackHole(i,j,'x');
             }
             else
             {
-                gameboard[i][j] = new Square;
-                label = " ";
-                gameboard[i][j]->setSquareLabel(label);
+                gameboard[i][j] = new Square(i,j,' ');
             }
-
-            gameboard[i][j]->setSquareCord(i, j);
         }
     }
 }

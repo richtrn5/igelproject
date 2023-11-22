@@ -4,22 +4,14 @@
 #include "BlackHole.h"
 #include "Square.h"
 
-BlackHole::BlackHole() {
+BlackHole::BlackHole(int i, int j, char blabel): Square(i,j,blabel) {
 
 }
 
-void BlackHole::setSquareLabel(string l) {
-    //Square::label = " x ";
-    Square::setSquareLabel(l);
 
-}
 
-void BlackHole::setSquareCord(int i, int j) {
-    Square::setSquareCord(i, j);
-}
-
-void BlackHole::display() {
-    Square::display();
+void BlackHole::displayB_label() {
+    Square::displayB_label();
 }
 
 // NEW
