@@ -40,4 +40,22 @@ void Hedgehog::displayHH()
 	}
 }
 
+void Hedgehog::displayCHIP()
+{
+	if (color == 'R')
+	{
+		std::cout << RED << 'O' << RESET;
+
+	}
+	if (color == 'G')
+	{
+		std::cout << GREEN << 'O' << RESET;
+
+	}
+}
+
+Hedgehog::~Hedgehog()
+{
+}
+
 

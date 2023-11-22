@@ -5,6 +5,8 @@
 #include "Square.h"
 #include <iostream>
 #include <string>
+
+#include "GameBoard.h"
 #include "Hedgehog.h"
 using namespace std;
 
@@ -19,49 +21,29 @@ Square::Square(int row, int col) //this is for hedgehog
 }
 
 
-void Square::setSquareLabel(int row, char col) 
+void Square::setSquareLabel(string l) 
 {
-    if (col == 0){
-        label = "Obs" + to_string(row);
-    }
-    else
-        label = "T"+ to_string(row) + col;
+    label = l;
 }
 
 void Square::setSquareCord(int row, int col) 
-{
+{ //change col to char
     xLocation = row;
     yLocation = col;
 }
 
 
-void Square::display() {
-    cout << label;
-}
 
-string Square::getLabel()
-{
-    return label;
-}
 
-void Square::popHH()
-{
-    chips.pop();
-}
 
-void Square::pushHH(const Hedgehog& hh)
-{
-
-    chips.push(hh);
-
-}
-
+// change label to coordinates
 void Square::displayStackHH()
 {
     stack<Hedgehog> tempHH = chips;
+    char letterCol = yLocation + 'a';
 	if (!chips.empty()) //only display the existing stacks
 	{
-        cout << label << ": ";
+        cout << xLocation << letterCol << ": ";
         while (!tempHH.empty())
         {
             tempHH.top().displayHH();
@@ -79,15 +61,7 @@ void Square::displayStackHH()
 	}
 }
 
-Hedgehog Square::getTop()
-{
-    return chips.top();
-}
 
 
-bool Square::checkStackEmpty()
-{
-    return chips.empty();
-}
 
 

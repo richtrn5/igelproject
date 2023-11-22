@@ -21,6 +21,7 @@ int main() {
 
     newgame.drawboard();
 
+    
 	//new methods added and being implemented
     cout << " how many players?? \n";
     cin >> players;
@@ -31,6 +32,6 @@ int main() {
     //newgame.displayUpdate(); // TESTING
     newgame.play();
     newgame.results();
-
+    
     return 0;
 }

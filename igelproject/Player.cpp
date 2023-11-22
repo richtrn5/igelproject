@@ -51,6 +51,21 @@ void Player::displayPlayer()
 
 }
 
+void Player::displayColorHH()
+{
+	if (hedgehog_.getColor() == 'R')
+	{
+
+		std::cout << RED << hedgehog_.getColor() << RESET;
+
+	}
+	if (hedgehog_.getColor() == 'G')
+	{
+		std::cout << GREEN << hedgehog_.getColor() << RESET;
+
+	}
+}
+
 char Player::getHHcolor_player()
 {
 	return hedgehog_.getColor();

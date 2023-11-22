@@ -1,12 +1,4 @@
 
-// https://iq.opengenus.org/print-text-in-color-in-c/
-
-#define RESET   "\033[0m"
-#define RED     "\033[31m"
-#define GREEN   "\033[32m"
-#define YELLOW  "\033[33m"
-#define BLUE    "\033[34m"
-
 
 #include "GameBoard.h"
 #include "Square.h"
@@ -25,34 +17,42 @@ GameBoard::GameBoard()
     }
 }
 
+void GameBoard::displayHHorSQ(int i, int j)
+{
+    if(!gameboard[i][j]->checkStackEmpty())
+    {
+        gameboard[i][j]->displayTopChip(); // display the circle
+    }
+    else
+    {
+        gameboard[i][j]->display(); // display square or obstacle
+    }
+}
+
 void GameBoard::createboard()
 {
     int charval{};
-
+    string label;
     for (int i = 0; i < row; ++i) {
         for (int j = 0; j < col; ++j) {
             bool blackholedetect = i == 0 && j == 3 || i == 1 && j == 6 || i == 2 && j == 4 ||
-                i == 3 && j == 5 || i == 4 && j == 2 || i == 5 && j == 7;
+                i == 3 && j == 5 || i == 4 && j == 2 || i == 5 && j == 7; // use this to add obstacles
+            // pass this into function
+
             //for placement of each obstacle.. as accordingly to the physical board.
 
             // implement adding obstacle label here
             // if statement for detecting obstacle
             if (blackholedetect) {
                 gameboard[i][j] = new BlackHole;
-                gameboard[i][j]->setSquareLabel(i + 1, 0);
+                label = "x";
+                gameboard[i][j]->setSquareLabel(label);
             }
             else
             {
                 gameboard[i][j] = new Square;
-                if (j == 0)
-                    //using ASCII dec values
-                    charval = 83; //S
-                else if (j == 8) {
-                    charval = 90 - j; //Z (dec 90)
-                }
-                else
-                    charval = 97; // b -> h
-                gameboard[i][j]->setSquareLabel(i, j + charval);
+                label = " ";
+                gameboard[i][j]->setSquareLabel(label);
             }
 
             gameboard[i][j]->setSquareCord(i, j);
@@ -64,32 +64,65 @@ void GameBoard::drawboard()
 {
     int charval{};
 
-    string title = "            GAMEBOARD            \n";
-    string hLine = "---------------------------------\n";
-    cout << GREEN<<title << RED<<hLine << RESET;
+    cout << " START                            ZIEL\n" << RESET;
+
 
     for (int i = 0; i < row; ++i) {
-        cout << i << "   ";
+        std::cout << " ";
+        for (int j = 0; j < col; ++j) {
+            // Print horizontal line
+            std::cout << "+---";
+        }
+        std::cout << "+\n";
+        std::cout << BLUE << i << RESET;
 
         for (int j = 0; j < col; ++j) {
-            gameboard[i][j]->display();
-            cout << "   "; // space the columns
-
+            // Print vertical line and cell content.. the display();
+            std::cout << "| ";
+        	//gameboard[i][j]->display();
+            displayHHorSQ(i, j); // add blank, X, or HH chip
+            std::cout << " ";
         }
+        std::cout << "|\n";
+    }
+    std::cout << " ";
+    for (int j = 0; j < col; ++j) {
+        std::cout << "+---";
+    }
+    std::cout << "+\n";
 
-        cout << endl;
+    std::cout << "  ";
+    for (int j = 0; j < col; ++j) {
+        const char colLabel = 'a' + j;
+
+        //cout << static_cast<int>(('a'));
+        std::cout << " " << BLUE << colLabel << RESET << "  ";
     }
-    std::cout << "     ";
-    for (int j = 0; j < col; ++j)
-    {
-	    std::cout << j << "     ";
-    }
-    cout << endl;
+    std::cout << "\n";
 
 }
 
 
 
+/*
+for (int i = 0; i < row; ++i) {
+    cout << i << "   ";
+
+    for (int j = 0; j < col; ++j) {
+        gameboard[i][j]->display();
+        cout << "   "; // space the columns
+
+    }
+
+    cout << endl;
+}
+std::cout << "     ";
+for (int j = 0; j < col; ++j)
+{
+    std::cout << j << "     ";
+}
+cout << endl;
+*/
 
 
 /*

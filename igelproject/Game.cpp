@@ -13,7 +13,7 @@ void Game::setplayers(int& numplayers) // make this an inline function
 	totalHHingame = numHH * numPlayers;
 
 	players_ = new Player[numPlayers]; //initialize the pointer with a 1d array of objects Player
-	allhedgehog_ = new Hedgehog[totalHHingame]; // might just delete this
+	//allhedgehog_ = new Hedgehog[totalHHingame]; // might just delete this
 }
 
 void Game::choosehhogs()
@@ -62,20 +62,21 @@ void Game::placehhogs()
 
 		for (int j = 0; j<numPlayers; j++) // counter for each player
 		{
-	
+			drawboard();
+			cout << "Player " << j + 1 << " place your ";
+			players_[j].displayColorHH();
+			cout << " HedgeHog, enter row number (0-5): ";
 
-			cout << "Player " << j + 1 << " place your HedgeHog, enter row number (0-5): ";
-
-			
 			cin >> rowB;
 			if (rowB > 5)
 			{
 				cout << "did you mean 5?\n";
 				rowB = 5;
-			}
+			} /// HERE MAKE PLAYER CHOOSE AGAIN
 			
 			gameboard[rowB][0]->pushHH(players_[j].placeHH());
 			// have PLAYER place hedgehog on the board
+			std::cout << BLUE << "----------------------------------------\n\n" <<  RESET;
 			displayUpdate();
 			//index++;
 		}

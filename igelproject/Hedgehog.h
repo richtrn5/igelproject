@@ -10,11 +10,13 @@
 #define BLUE    "\033[34m"
 
 #include <string>
+
 //#include "Square.h"
 // DO NOT INCLUDE THIS
+
 using namespace std;
 
-class Hedgehog // the chips
+class Hedgehog// the chips
 {
 private:
 	string label;
@@ -25,8 +27,9 @@ public:
 	void setColor(char Color);
 	char& getColor();
 	void displayHH();
-	//void getHH(int & i);
-	//void setStart(int x, int y);
+	void displayCHIP();
+
+	virtual ~Hedgehog();
 
 	
 };

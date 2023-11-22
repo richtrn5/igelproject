@@ -8,8 +8,9 @@ BlackHole::BlackHole() {
 
 }
 
-void BlackHole::setSquareLabel(int row, char col) {
-    Square::setSquareLabel(row, col);
+void BlackHole::setSquareLabel(string l) {
+    //Square::label = " x ";
+    Square::setSquareLabel(l);
 
 }
 
