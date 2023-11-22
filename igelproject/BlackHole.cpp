@@ -22,6 +22,7 @@ void BlackHole::display() {
     Square::display();
 }
 
+// NEW
 void BlackHole::popHH()
 {
     Square::popHH();

@@ -96,7 +96,7 @@ bool Game::checkLastCol()
 		if (!(gameboard[i][8]->checkStackEmpty())) // if NOT empty
 		{
 			std::cout << "winnerwinner chicken dinner\n";
-			colstatus= true;
+			colstatus = true;
 			//break;
 			
 		}

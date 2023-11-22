@@ -17,7 +17,7 @@ private:
     string label;
     int xLocation;
     int yLocation;
-    stack<Hedgehog> chips;
+    stack<Hedgehog> chips; //new
     
 public:
     //blank for creating square obj in gameboard
@@ -31,11 +31,20 @@ public:
 
     // we can remove these actually
     
+<<<<<<< HEAD
 
 
     // set square values
 	// displays details or labels of current square on the gameboard
     virtual void display(){cout << label;}
+=======
+    virtual void popHH(); // remove top element of stack
+    virtual void pushHH(const Hedgehog & hh); // push new element of type HEDGEHOG onto stack
+
+    virtual void displayStackHH(); // display ENTIRE stack
+
+    virtual Hedgehog getTop(); // displays top of STACK
+>>>>>>> 336ee49c1347b9116df596795d84cd770e3cba43
 
 
     // mainly for feeding private data member to Hedgehog
