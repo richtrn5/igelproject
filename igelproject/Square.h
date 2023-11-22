@@ -25,7 +25,7 @@ public:
     Square(int row, int col);
 
     //setting private data
-    virtual void setSquareLabel(string l);
+    virtual void setSquareLabel(string l){ label = l; }
 
     virtual void setSquareCord(int row, int col);
 

@@ -1,7 +1,3 @@
-//
-// Created by Rich Tran on 11/10/23.
-//
-
 #include "Square.h"
 #include <iostream>
 #include <string>
@@ -14,16 +10,11 @@ Square::Square()
 {
 
 }
+
 // add constructor for receiving row and col values ******
 Square::Square(int row, int col) //this is for hedgehog
 {
 
-}
-
-
-void Square::setSquareLabel(string l)
-{
-    label = l;
 }
 
 void Square::setSquareCord(int row, int col)
@@ -31,9 +22,6 @@ void Square::setSquareCord(int row, int col)
     xLocation = row;
     yLocation = col;
 }
-
-
-
 
 
 // change label to coordinates

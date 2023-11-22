@@ -3,7 +3,6 @@
 #include <iostream>
 Hedgehog::Hedgehog()
 {
-
 }
 
 Hedgehog::Hedgehog(char Color)
@@ -11,14 +10,6 @@ Hedgehog::Hedgehog(char Color)
 	color = Color;
 }
 
-//OLD
-/*
-void Hedgehog::setColor(char Color)
-{
-	color = Color;
-	//std::cout << color << std::endl;
-}
-*/
 
 char& Hedgehog::getColor()
 {

@@ -8,20 +8,10 @@ Player::Player()
 {
 }
 
-Player::Player(char color) : hedgehog_(color)
+Player::Player(const char color) : rank(0), hedgehog_(color)
 {
 	//hedgehog_ = new Hedgehog[4];
 }
-
-//OLD
-/*
-void Player::giveHHchips()
-{
-
-		hedgehog_.setColor(color);
-	
-}
-*/
 
 
 
@@ -66,15 +56,7 @@ void Player::displayColorHH()
 	}
 }
 
-char Player::getHHcolor_player()
-{
-	return hedgehog_.getColor();
-}
-
-Hedgehog Player::placeHH()
-{
-	return hedgehog_;
-}
+\
 
 
 

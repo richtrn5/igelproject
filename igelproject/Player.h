@@ -18,22 +18,24 @@ class Player{
 private:
     int rank;
     Hedgehog hedgehog_; //the type of hedgehog color in player
-    int numDie;
+    //int numDie;
 	
 public:
     Player();
 
     Player(char color); //initialize player with hedgehog color
 
-    void moveHH();
-	// asks specific player to move a hedgehog depending on where the die lands...
+    // asks specific player to move a hedgehog depending on where the die lands...
 	// should only allow to choose a hedgehog based on the number landed.
+    void moveHH();
+
 
     void displayPlayer();
 
-    Hedgehog placeHH(); // return Hedgehog object
+    // return Hedgehog object for STACKING specific player's HH
+    Hedgehog placeHH() { return hedgehog_; } 
 
-    char getHHcolor_player();
+    char getHHcolor_player(){ return hedgehog_.getColor(); }
     void displayColorHH();
     //helper functions
 };
