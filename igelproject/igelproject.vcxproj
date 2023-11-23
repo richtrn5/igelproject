@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,6 +131,7 @@
     <ClInclude Include="BlackHole.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameBoard.h" />
+    <ClInclude Include="GameTable.h" />
     <ClInclude Include="Hedgehog.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Square.h" />
@@ -138,6 +140,7 @@
     <ClCompile Include="BlackHole.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameBoard.cpp" />
+    <ClCompile Include="GameTable.cpp" />
     <ClCompile Include="Hedgehog.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />

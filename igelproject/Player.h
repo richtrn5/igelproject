@@ -8,6 +8,7 @@
 #define GREEN   "\033[32m"
 #define YELLOW  "\033[33m"
 #define BLUE    "\033[34m"
+
 #include <string>
 
 #include "GameBoard.h"
@@ -16,26 +17,27 @@
 using namespace std;
 class Player{
 private:
+    char color;
     int rank;
     Hedgehog hedgehog_; //the type of hedgehog color in player
     //int numDie;
 	
 public:
-    Player();
+    Player() = default;
 
-    Player(char color); //initialize player with hedgehog color
+    Player(char color_c); //initialize player with hedgehog color
 
     // asks specific player to move a hedgehog depending on where the die lands...
 	// should only allow to choose a hedgehog based on the number landed.
-    void moveHH();
 
+	//void moveHH();
 
     void displayPlayer();
 
     // return Hedgehog object for STACKING specific player's HH
     Hedgehog placeHH() { return hedgehog_; } 
 
-    char getHHcolor_player(){ return hedgehog_.getColor(); }
+    char getHHcolorPlayer(){ return hedgehog_.getColor(); }
     void displayColorHH();
     //helper functions
 };

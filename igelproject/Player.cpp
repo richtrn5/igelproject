@@ -4,13 +4,9 @@
 #include <string>
 
 
-Player::Player()
-{
-}
 
-Player::Player(const char color) : rank(0), hedgehog_(color)
+Player::Player(const char color_c) : color(color_c),rank(0), hedgehog_(color_c)
 {
-	//hedgehog_ = new Hedgehog[4];
 }
 
 

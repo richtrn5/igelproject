@@ -4,11 +4,12 @@
 #include "Square.h"
 
 class BlackHole: public Square{
+
 public:
-    BlackHole();
-    virtual void setSquareLabel(string l);
-    virtual void setSquareCord(int i, int j); // might not be needed
-    virtual void display();
+    // construct blackhole and pass features to SQUARE object
+    BlackHole(int i,int j, char blabel);
+
+    virtual void displayBLabel();
 
     virtual void popHH();
     virtual void pushHH(const Hedgehog& hh);

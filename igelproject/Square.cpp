@@ -1,37 +1,19 @@
 #include "Square.h"
-#include <iostream>
-#include <string>
-
-#include "GameBoard.h"
-#include "Hedgehog.h"
-using namespace std;
-
-Square::Square()
-{
-
-}
-
-// add constructor for receiving row and col values ******
-Square::Square(int row, int col) //this is for hedgehog
-{
-
-}
-
-void Square::setSquareCord(int row, int col)
-{ //change col to char
-    xLocation = row;
-    yLocation = col;
-}
 
 
-// change label to coordinates
+Square::Square(){}
+
+Square::Square(int row, int col, char b_label)
+		: board_label(b_label), x_location(row), y_location(col){}
+
+
 void Square::displayStackHH()
 {
     stack<Hedgehog> tempHH = chips;
-    char letterCol = yLocation + 'a';
+    char letterCol = y_location + 'a';
     if (!chips.empty()) //only display the existing stacks
     {
-        cout << xLocation << letterCol << ": ";
+        cout << x_location << letterCol << ": ";
         while (!tempHH.empty())
         {
             tempHH.top().displayHH();

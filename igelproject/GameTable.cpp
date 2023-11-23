@@ -1,20 +1,11 @@
-#include <iostream>
-#include <string>
-#include "GameBoard.h"
-#include "Game.h"
+#include "GameTable.h"
 
-
-int main() {
-
-    //TODO remove all these
-    /*
-    int players;
-    Game newgame;
-
+void GameTable::tablePlay()
+{
     newgame.drawboard();
 
-    
-	//new methods added and being implemented
+
+    //new methods added and being implemented
     cout << " how many players?? \n";
     cin >> players;
     newgame.setPlayers(players);
@@ -24,6 +15,4 @@ int main() {
     //newgame.displayUpdate(); // TESTING
     newgame.play();
     newgame.results();
-    */
-    return 0;
 }
