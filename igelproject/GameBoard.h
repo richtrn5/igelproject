@@ -1,5 +1,4 @@
 
-
 #ifndef IGELPROJECT_GAMEBOARD_H
 #define IGELPROJECT_GAMEBOARD_H
 
@@ -39,7 +38,7 @@ public:
     //check empty square
     void displayHHorSQ(int i, int j);
 
-
+    // TODO delete columns, rows, then gameboard ptr
     //virtual ~GameBoard() { delete[] gameboard; }
 };
 

@@ -3,19 +3,11 @@
 #include "GameBoard.h"
 #include "Game.h"
 
-using namespace std;
-
-void gameTest()
-{
-    const int row = 6;
-    const int col = 9;
-    string horizontal = "   -------------------------------------\n";
-    cout <<  horizontal;
-}
-
 
 int main() {
 
+    //TODO remove all these
+    /*
     int players;
     Game newgame;
 
@@ -32,6 +24,6 @@ int main() {
     //newgame.displayUpdate(); // TESTING
     newgame.play();
     newgame.results();
-    
+    */
     return 0;
 }
