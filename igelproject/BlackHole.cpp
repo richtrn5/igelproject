@@ -10,8 +10,8 @@ BlackHole::BlackHole(int i, int j, char blabel): Square(i,j,blabel) {
 
 
 
-void BlackHole::displayB_label() {
-    Square::displayB_label();
+void BlackHole::displayBLabel() {
+    Square::displayBLabel();
 }
 
 // NEW

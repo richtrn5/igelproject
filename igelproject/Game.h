@@ -9,7 +9,7 @@ class Game :
 {
 private:
 	Player* players_;
-	int numPlayers;
+	int num_players;
 	const int numHH = 4;
 
 	int totalHHingame;
@@ -34,10 +34,10 @@ public:
 	void results();
 	// Display final result of board and player winner
 
-	void setplayers(int& numPlayers);
+	void setPlayers(const int& numPlayers);
 	// set players depending on number of players input in main.cpp
 
-	void choosehhogs();
+	void chooseHHogs();
 	// have each created player choose a color R = red  G = green
 
 	void placehhogs();

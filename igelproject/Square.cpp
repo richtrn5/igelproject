@@ -3,17 +3,17 @@
 
 Square::Square(){}
 
-Square::Square(int row, int col, char blabel)
-		: boardlabel(blabel), xLocation(row), yLocation(col){}
+Square::Square(int row, int col, char b_label)
+		: board_label(b_label), x_location(row), y_location(col){}
 
 
 void Square::displayStackHH()
 {
     stack<Hedgehog> tempHH = chips;
-    char letterCol = yLocation + 'a';
+    char letterCol = y_location + 'a';
     if (!chips.empty()) //only display the existing stacks
     {
-        cout << xLocation << letterCol << ": ";
+        cout << x_location << letterCol << ": ";
         while (!tempHH.empty())
         {
             tempHH.top().displayHH();

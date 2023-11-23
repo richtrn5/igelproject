@@ -21,22 +21,24 @@ class GameBoard {
 private:
 
 protected:
-    Square*** gameboard;
+    Square*** gameboard; // declare gameboard ptr -> ptr -> ptr -> Square interface
     const int row = 6;
     const int col = 9;
 public:
     GameBoard();
 
-    // creating & displaying gameboard
+    // creating gameboard
     void createboard();
+
+    //display a text-based representation of the board
     virtual void drawboard();
 
+    // return address location of dynamic gameboard array
     Square***& getGameboard() { return gameboard; }
 
     //check empty square
     void displayHHorSQ(int i, int j);
 
-    //display a text-based representation of the board
 
     //virtual ~GameBoard() { delete[] gameboard; }
 };

@@ -15,19 +15,19 @@ using std::cout, std::string;
 class Square {
 
     string label;
-    char boardlabel;
-    int xLocation;
-    int yLocation;
+    char board_label;
+    int x_location;
+    int y_location;
     stack<Hedgehog> chips;
 
 public:
     //blank for creating square obj in gameboard
     Square();
-    Square(int row, int col, char blabel);
+    Square(int row, int col, char b_label);
 
 
     // displays boardlabel of current square on the gameboard
-    virtual void displayB_label() { cout << boardlabel; }
+    virtual void displayBLabel() { cout << board_label; }
 
 
     // TODO remove this if not needed
