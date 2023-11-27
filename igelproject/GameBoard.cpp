@@ -51,8 +51,6 @@ void GameBoard::createboard()
 
 void GameBoard::drawboard()
 {
-    int charval{};
-
     cout << " START                            ZIEL\n" << RESET;
 
 
@@ -63,7 +61,7 @@ void GameBoard::drawboard()
             std::cout << "+---";
         }
         std::cout << "+\n";
-        std::cout << BLUE << i << RESET;
+        std::cout << BLUE << i+1 << RESET;
 
         for (int j = 0; j < col; ++j) {
             // Print vertical line and cell content.. the display();

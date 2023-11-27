@@ -1,12 +1,13 @@
 #include "Player.h"
-#include "Square.h"
 #include <iostream>
 #include <string>
 
 
 
+
 Player::Player(const char color_c) : color(color_c),rank(0), hedgehog_(color_c)
 {
+	 
 }
 
 

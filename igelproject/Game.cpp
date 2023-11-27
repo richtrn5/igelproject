@@ -10,8 +10,6 @@ Game::Game()
 void Game::setPlayers(const int& n_players) // make this an inline function
 {
 	num_players = n_players;
-	totalHHingame = numHH * num_players;
-
 	players_ = new Player[num_players]; //initialize the pointer with a 1d array of objects Player
 	//allhedgehog_ = new Hedgehog[totalHHingame]; // might just delete this
 }
@@ -48,22 +46,31 @@ void Game::placehhogs()
 			drawboard();
 			cout << "Player " << j + 1 << " place your ";
 			players_[j].displayColorHH();
-			cout << " HedgeHog, enter row number (0-5): ";
+			cout << " HedgeHog, enter row number (1-6): ";
 
-			cin >> rowB;
-			if (rowB > 5)
+			while (true)
 			{
-				cout << "did you mean 5?\n";
-				rowB = 5;
-			} /// HERE MAKE PLAYER CHOOSE AGAIN
+				if (cin >> rowB && (rowB >= 1 && rowB <= 6))
+				{
+					rowB -= 1; // 0-5 for array indexing
+					break;
+				} /// HERE MAKE PLAYER CHOOSE AGAIN
+				else
+				{
+					cout << RED << "INVALID INPUT\n "  << RESET;
+					cout << "Enter a row number (1-6): ";
+					cin.clear(); // clear cin buffer
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+				}
+			}
 
 			gameboard[rowB][0]->pushHH(players_[j].placeHH());
 			std::cout << BLUE << "----------------------------------------\n\n" << RESET;
+			//drawboard();
 			displayUpdate();
 		}
-
 	}
-
 	drawboard();
 }
 
@@ -101,13 +108,15 @@ void Game::play()
 			//std::cout << "enter any num to continue WHILE LOOP\n";
 			//cin >> num;
 			//players_[i].moveHH(); this does not work... idk why
-
+			// detect player count here
+			//TODO make player movements... not GAME movements
 			rollDie();
 
 			forward(i);
 
 			displayUpdate();
 
+			// TODO: Exit this for loop when player1 detected as winner or other previous players
 		}
 	}
 }
@@ -125,7 +134,6 @@ void Game::displayUpdate()
 	{
 		for (int j = 0; j < col; j++)
 		{
-
 			gameboard[i][j]->displayStackHH();
 		}
 	}
@@ -163,16 +171,18 @@ void Game::rollDie()
 // TODO somehow move this to Player
 bool Game::forward(int i)
 {
+	char char_input;
 	int num;
 	bool stay; // status for valid movement
 	bool HHexist = false; //status for existing player's HH
 	//choose column in specific row (from die) to move forward
 
 	// TODO force player to repeat if INVALID action
+	// somehow make this code shorter by pushing stuff to play()
 	std::cout << "MOVE FORWARD" << endl;
-	cout << "choose column from row " << numDie << ":  ";
-	cin >> num;
-
+	cout << "choose column from row " << numDie << "(a - i):  ";
+	cin >> char_input;
+	num = char_input - 'a';
 
 	if (!gameboard[numDie][num]->checkStackEmpty()) // if square is not empty
 	{
@@ -198,6 +208,7 @@ bool Game::forward(int i)
 			stay = false;
 		*/
 		stay = false;
+		drawboard();
 	}
 
 

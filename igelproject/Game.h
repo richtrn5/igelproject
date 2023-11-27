@@ -5,17 +5,12 @@
 #include "Player.h"
 
 class Game :
-	public GameBoard// multiple inheritance
+	public GameBoard, public Player// multiple inheritance
 {
 private:
 	Player* players_;
 	int num_players;
 	const int numHH = 4;
-
-	int totalHHingame;
-
-	Hedgehog* allhedgehog_;
-
 	int numDie;
 
 public:

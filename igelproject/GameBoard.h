@@ -33,6 +33,7 @@ public:
     virtual void drawboard();
 
     // return address location of dynamic gameboard array
+    // used specificly for Player's methods
     Square***& getGameboard() { return gameboard; }
 
     //check empty square

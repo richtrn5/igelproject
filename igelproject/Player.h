@@ -9,9 +9,6 @@
 #define YELLOW  "\033[33m"
 #define BLUE    "\033[34m"
 
-#include <string>
-
-#include "GameBoard.h"
 #include "Hedgehog.h"
 
 using namespace std;
@@ -39,6 +36,7 @@ public:
 
     char getHHcolorPlayer(){ return hedgehog_.getColor(); }
     void displayColorHH();
+    
     //helper functions
 };
 
