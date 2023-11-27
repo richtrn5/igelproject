@@ -2,11 +2,15 @@
 #include "GameTable.h"
 class Partition
 {
-	// TODO i still dont know what a time instant means
+
+
 	GameTable* gtp;
 	Partition* nextp;
 
 public:
-
+	void setGTP();
+	GameTable* & getGTP() { return gtp; }
+	void setNP();
+	Partition*& getNP() { return nextp; }
 };
 
