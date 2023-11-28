@@ -2,6 +2,7 @@
 
 void GameTable::tablePlay()
 {
+    int players;
     newgame.drawboard();
 
 
