@@ -3,7 +3,7 @@
 #include <vector>
 using std::vector;
 
-const int max_delay{ 4 }; // maximum 4 players, so 4 time instances
+const int max_delay{ 2 }; // maximum 2 players, so 2 time instances... can only handle 2 players for now.
 
 class TimingWheel
 {

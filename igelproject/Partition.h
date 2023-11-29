@@ -8,9 +8,10 @@ class Partition
 	// points to existing gametable object
 	GameTable* gtp;
 	Partition* nextp;
+	int play_time;
 
 public:
-	Partition();
+	Partition(int time);
 
 	// accessor functions (get/set)
 

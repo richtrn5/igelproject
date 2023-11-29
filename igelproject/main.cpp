@@ -28,10 +28,7 @@ int main() {
     TimingWheel task; //assuming 2 players max
     task.insert(3, test1); //pass reference of gametable for the pointer parameter with 3 time units
     //task.insert(4, &test2);
-    for (int i = 0; i < max_delay; i++)
-    {
-        task.schedule();
-    }
+    task.schedule();
 
     
     return 0;

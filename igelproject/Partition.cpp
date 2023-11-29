@@ -1,6 +1,6 @@
 #include "Partition.h"
 
-Partition::Partition(): gtp(nullptr), nextp(nullptr)
+Partition::Partition(int time): gtp(nullptr), nextp(nullptr), play_time(time)
 {
 
 }

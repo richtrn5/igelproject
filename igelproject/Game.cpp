@@ -82,7 +82,7 @@ bool Game::checkLastCol()
 	{
 		if (!(gameboard[i][8]->checkStackEmpty())) // if NOT empty
 		{
-			std::cout << "winnerwinner chicken dinner\n";
+			//std::cout << "winnerwinner chicken dinner\n";
 			colstatus = true;
 			//break;
 
@@ -99,26 +99,31 @@ void Game::play()
 	int num = 0;
 	int index = 0;
 	//displayUpdate();
-	while (!checkLastCol()) // while last column is empty
+	// 
+	// REMOVE WHILE LOOP TO IMPLEMENT TIMEWHEEL
+	//while (!checkLastCol()) // while last column is empty
+	//{
+	for (int i = 0; i < num_players; i++)
 	{
-		for (int i = 0; i < num_players; i++)
+		std::cout << "PLAYER" << i + 1 << " TURN\n";
+
+		//std::cout << "enter any num to continue WHILE LOOP\n";
+		//cin >> num;
+		//players_[i].moveHH(); this does not work... idk why
+
+		rollDie();
+
+		forward(i);
+
+		displayUpdate();
+		if (checkLastCol())
 		{
-			std::cout << "PLAYER" << i + 1 << " TURN\n";
-
-			//std::cout << "enter any num to continue WHILE LOOP\n";
-			//cin >> num;
-			//players_[i].moveHH(); this does not work... idk why
-			// detect player count here
-			//TODO make player movements... not GAME movements
-			rollDie();
-
-			forward(i);
-
-			displayUpdate();
-
-			// TODO: Exit this for loop when player1 detected as winner or other previous players
+			break;
+			// break from for-loop if true
 		}
+
 	}
+	//}
 }
 
 void Game::displayUpdate()
@@ -147,9 +152,14 @@ void Game::results()
 	{
 		for (int pCNT = 0; pCNT < num_players; pCNT++) //check each player's HH color
 		{
+			// now check each [i] element of the last column [8]
 			if (!gameboard[i][8]->checkStackEmpty() && (gameboard[i][8]->getTop().getColor() == players_[pCNT].getHHcolorPlayer()))
 			{
-				cout << "WINNER IS PLAYER " << pCNT + 1;
+				cout << "WINNER IS PLAYER " << pCNT + 1 << endl;
+			}
+			else
+			{
+				cout << "No winner yet" << endl;
 			}
 		}
 	}
