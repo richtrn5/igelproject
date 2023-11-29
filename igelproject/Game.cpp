@@ -101,29 +101,30 @@ void Game::play()
 	//displayUpdate();
 	// 
 	// REMOVE WHILE LOOP TO IMPLEMENT TIMEWHEEL
-	//while (!checkLastCol()) // while last column is empty
-	//{
-	for (int i = 0; i < num_players; i++)
+	while (!checkLastCol()) // while last column is empty
 	{
-		std::cout << "PLAYER" << i + 1 << " TURN\n";
-
-		//std::cout << "enter any num to continue WHILE LOOP\n";
-		//cin >> num;
-		//players_[i].moveHH(); this does not work... idk why
-
-		rollDie();
-
-		forward(i);
-
-		displayUpdate();
-		if (checkLastCol())
+		for (int i = 0; i < num_players; i++)
 		{
-			break;
-			// break from for-loop if true
-		}
+			std::cout << "PLAYER" << i + 1 << " TURN\n";
 
+			//std::cout << "enter any num to continue WHILE LOOP\n";
+			//cin >> num;
+			//players_[i].moveHH(); this does not work... idk why
+
+			rollDie();
+
+			forward(i);
+
+			displayUpdate();
+			// pass true if HH exists on last column
+			if (checkLastCol())
+			{
+				// break from for-loop if true
+				break;
+			}
+
+		}
 	}
-	//}
 }
 
 void Game::displayUpdate()
@@ -232,5 +233,7 @@ bool Game::forward(int i)
 	return stay;
 
 }
+
+
 
 

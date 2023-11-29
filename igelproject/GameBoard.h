@@ -37,6 +37,7 @@ public:
     Square***& getGameboard() { return gameboard; }
 
     //check empty square
+    // chooses to either display a HH (chip) or the Square's label on the gameboard
     void displayHHorSQ(int i, int j);
 
     // TODO delete columns, rows, then gameboard ptr
