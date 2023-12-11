@@ -67,7 +67,6 @@ int main() {
 
 
     newgame.results();
-
-    
+    */
     return 0;
 }
