@@ -18,19 +18,12 @@ void Game::chooseHHogs()
 {
 	int index = 0;
 	char color;
-
-	/*
 	for (int i = 0; i < num_players; i++)
 	{
 		cout << "choose Color for player " << i + 1 << "\nR for Red, G for Green: ";
 		cin >> color;
 		players_[i] = Player(color);
 	}
-	*/
-	// preset player's color for SIMULATION
-	players_[0] = Player('R');
-	players_[1] = Player('G');
-
 
 
 }
@@ -54,25 +47,23 @@ void Game::placehhogs()
 			cout << "Player " << j + 1 << " place your ";
 			players_[j].displayColorHH();
 			cout << " HedgeHog, enter row number (1-6): ";
-			// place random spot for HH
-			rowB = rand() % 6;
 
-			//while (true)
-			//{
-				//if (cin >> rowB && (rowB >= 1 && rowB <= 6))
-				//{
-					//rowB -= 1; // 0-5 for array indexing
-					//break;
-				//} /// HERE MAKE PLAYER CHOOSE AGAIN
-				//else
-				//{
-					//cout << RED << "INVALID INPUT\n "  << RESET;
-					//cout << "Enter a row number (1-6): ";
-					//cin.clear(); // clear cin buffer
-					//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			while (true)
+			{
+				if (cin >> rowB && (rowB >= 1 && rowB <= 6))
+				{
+					rowB -= 1; // 0-5 for array indexing
+					break;
+				} /// HERE MAKE PLAYER CHOOSE AGAIN
+				else
+				{
+					cout << RED << "INVALID INPUT\n " << RESET;
+					cout << "Enter a row number (1-6): ";
+					cin.clear(); // clear cin buffer
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-				//}
-			//}
+				}
+			}
 
 			gameboard[rowB][0]->pushHH(players_[j].placeHH());
 			std::cout << BLUE << "----------------------------------------\n\n" << RESET;
@@ -110,15 +101,15 @@ void Game::play()
 	//displayUpdate();
 	// 
 	// REMOVE WHILE LOOP TO IMPLEMENT TIMEWHEEL
-	//while (!checkLastCol()) // while last column is empty
-	//{
-	for (int i = 0; i < num_players; i++)
+	while (!checkLastCol()) // while last column is empty
 	{
-		std::cout << "PLAYER" << i + 1 << " TURN\n";
+		for (int i = 0; i < num_players; i++)
+		{
+			std::cout << "PLAYER" << i + 1 << " TURN\n";
 
-		//std::cout << "enter any num to continue WHILE LOOP\n";
-		//cin >> num;
-		//players_[i].moveHH(); this does not work... idk why
+			//std::cout << "enter any num to continue WHILE LOOP\n";
+			//cin >> num;
+			//players_[i].moveHH(); this does not work... idk why
 
 			rollDie();
 
@@ -182,17 +173,16 @@ void Game::drawboard()
 
 void Game::rollDie()
 {
-	//numDie = 1; // testing SPECIFIC row
+	numDie = 1; // testing SPECIFIC row
 
-	// choose random value from 0 to 5... for picking a matrix row
-	numDie = std::rand() % 6;
-	cout << "Number Rolled: " << numDie+1 << endl;
+	//numDie = std::rand() % 6;
+	cout << "Number Rolled: " << numDie << endl;
 }
 
 // TODO somehow move this to Player
 bool Game::forward(int i)
 {
-	//char char_input;
+	char char_input;
 	int num;
 	bool stay; // status for valid movement
 	bool HHexist = false; //status for existing player's HH
@@ -201,47 +191,43 @@ bool Game::forward(int i)
 	// TODO force player to repeat if INVALID action
 	// somehow make this code shorter by pushing stuff to play()
 	std::cout << "MOVE FORWARD" << endl;
-	cout << "choose column from row " << numDie << "(1 - 9):  ";
-	//cin >> char_input;
-	// simulation chooses a random column to move the HH forward..
+	cout << "choose column from row " << numDie+1 << "(a - i):  ";
+	cin >> char_input;
+	num = char_input - 'a';
 
-	while (true)
+	if (!gameboard[numDie][num]->checkStackEmpty()) // if square is not empty
 	{
-		if (!gameboard[numDie][num]->checkStackEmpty()) // if square is not empty
-		{
-			gameboard[numDie][num + 1]->pushHH(gameboard[numDie][num]->getTop());
-			gameboard[numDie][num]->popHH();
+		gameboard[numDie][num + 1]->pushHH(gameboard[numDie][num]->getTop());
+		gameboard[numDie][num]->popHH();
 
-			// checking if hedgehog on the board matches with the player's *****(UNDER DEVELOPMENT)*****
-			/*
-				if (HHexist) // compare HH player's color
-				{
+		// checking if hedgehog on the board matches with the player's *****(UNDER DEVELOPMENT)*****
+		/*
+			if (HHexist) // compare HH player's color
+			{
 
-					gameboard[numDie][num + 1]->pushHH(players_[i].placeHH());
-					gameboard[numDie][num]->popHH();
+				gameboard[numDie][num + 1]->pushHH(players_[i].placeHH());
+				gameboard[numDie][num]->popHH();
 
-				}
-				else
-				{
-					std::cout << "moving other player's Hedgehog\n";
-					gameboard[numDie][num + 1]->pushHH(gameboard[numDie][num]->getTop());
-					gameboard[numDie][num]->popHH();
-					//stay = true;
-				}
-				stay = false;
-			*/
+			}
+			else
+			{
+				std::cout << "moving other player's Hedgehog\n";
+				gameboard[numDie][num + 1]->pushHH(gameboard[numDie][num]->getTop());
+				gameboard[numDie][num]->popHH();
+				//stay = true;
+			}
 			stay = false;
-			break;
-			drawboard();
-		}
+		*/
+		stay = false;
+		drawboard();
+	}
 
 
-		else
-		{
-			cout << "no stack exists, choose again\n";
-			stay = true;
-			//return stay;
-		}
+	else
+	{
+		cout << "no stack exists\n";
+		stay = true;
+		//return stay;
 	}
 
 	return stay;
