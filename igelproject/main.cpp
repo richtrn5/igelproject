@@ -50,8 +50,8 @@ int main() {
 
     //new methods added and being implemented
     cout << " how many players?? \n";
-    cin >> players;
-    newgame.setPlayers(players);
+    //cin >> players;
+    newgame.setPlayers(2);
 
     // each player will choose a color R or G in the terminal
     newgame.chooseHHogs();
