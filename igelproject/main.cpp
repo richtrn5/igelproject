@@ -46,7 +46,6 @@ int main() {
     newgame.drawboard();
 
     get_user_input();
-    print_status(user_input, newgame);
 
     //new methods added and being implemented
     cout << " how many players?? \n";
@@ -67,6 +66,8 @@ int main() {
 
 
     newgame.results();
+    print_status(user_input, newgame);
+
     
     return 0;
 }
